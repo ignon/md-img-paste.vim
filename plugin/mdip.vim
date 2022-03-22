@@ -186,12 +186,12 @@ function! g:MarkdownPasteImage(relpath)
 endfunction
 
 function! g:WikilinkPasteImage(relpath)
-        execute "normal! i![[oispa kaljaa]]"
-        " execute "normal! i![[" . a:relpath[0:0]
-        " let ipos = getcurpos()
-        " execute "normal! a" . a:relpath[1:] . "]]"
-        " call setpos('.', ipos)
-        " execute "normal! vt]\<C-g>"
+        " execute "normal! i![[oispa kaljaa]]"
+        execute "normal! i![[" . a:relpath[0:0]
+        let ipos = getcurpos()
+        execute "normal! a" . a:relpath[1:] . "]]"
+        call setpos('.', ipos)
+        execute "normal! vt]\<C-g>"
 endfunction
 
 function! g:LatexPasteImage(relpath)
