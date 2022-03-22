@@ -185,6 +185,14 @@ function! g:MarkdownPasteImage(relpath)
         execute "normal! vt]\<C-g>"
 endfunction
 
+function! g:WikilinkPasteImage(relpath)
+        execute "normal! i![[" . a:relpath[0:0]
+        let ipos = getcurpos()
+        execute "normal! a" . a:relpath[1:] . "]]"
+        call setpos('.', ipos)
+        execute "normal! vt]\<C-g>"
+endfunction
+
 function! g:LatexPasteImage(relpath)
     execute "normal! i\\includegraphics{" . a:relpath . "}\r\\caption{I"
     let ipos = getcurpos()
